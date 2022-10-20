@@ -10,12 +10,17 @@ import { TeamListComponent } from './components/team-list/team-list.component';
   declarations: [
     AppComponent,
     TeamListComponent
+    LandingComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialsImportModule
+    HttpClientModule,
+    MaterialsImportModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
