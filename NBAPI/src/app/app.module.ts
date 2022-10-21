@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsImportModule } from './materials-import/materials-import.module';
+import { TeamListComponent } from './components/team-list/team-list.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +14,7 @@ import { PlayerListComponent } from './components/player-list/player-list.compon
 @NgModule({
   declarations: [
     AppComponent,
+    TeamListComponent,
     LandingComponent,
     NotFoundComponent,
     PlayerListComponent

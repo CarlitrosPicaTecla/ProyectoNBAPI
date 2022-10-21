@@ -1,0 +1,24 @@
+.example-card {
+    min-width:250px ;
+    display: inline-block;
+    margin: 2%;
+    text-align: center;
+
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+
+
+  .cont{
+    text-align: center;
+    width: 100%;
+    background-color: black;
+  }
+
+  .nbalogo{
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+  }
