@@ -1,0 +1,11 @@
+
+<div class="cont">
+  <img src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png" class="nbalogo" >
+<mat-card class="example-card" *ngFor="let team of teamList ">
+    <mat-card-header>
+      <mat-card-title>{{team.fullName}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="showImg(team)" >
+    <button mat-button color="primary">Info</button>
+  </mat-card>
+</div>
