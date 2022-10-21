@@ -18,7 +18,15 @@
   }
 
   .nbalogo{
-    width: 30%;
+    width: 6%;
     display: block;
-    margin: 0 auto;
   }
+
+
+.navb{
+  text-align: end;
+  width: 90%;
+}
+h2{
+  color: rgb(206, 206, 206);
+}
