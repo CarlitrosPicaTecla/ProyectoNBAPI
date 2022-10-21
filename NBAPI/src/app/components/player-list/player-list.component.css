@@ -1,8 +1,13 @@
 .tablaJugadores {
     width: 80%;
     margin: auto;
+    margin-top: 50px;
 }
 
 .tablaJugadores > table {
     margin: auto;
+}
+
+.td, th {
+    width: 20%;
 }

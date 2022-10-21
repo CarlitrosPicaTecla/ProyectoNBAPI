@@ -32,4 +32,9 @@ export class PlayerListComponent implements OnInit {
     console.log(this.datos)
   }
 
+  aplicarFiltro(evento: Event) {
+    const filtro = (evento.target as HTMLInputElement).value;
+    this.datos.filter = filtro.trim().toLowerCase();
+  }
+
 }
