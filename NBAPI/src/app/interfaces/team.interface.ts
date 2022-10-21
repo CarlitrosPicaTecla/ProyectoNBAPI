@@ -10,7 +10,7 @@ export interface Internal {
     endToEndTimeMillis: string;
 }
 
-export interface Standard {
+export interface Team {
     isNBAFranchise: boolean;
     isAllStar: boolean;
     city: string;
@@ -86,7 +86,7 @@ export interface Utah {
 }
 
 export interface League {
-    standard: Standard[];
+    standard: Team[];
     africa: Africa[];
     sacramento: Sacramento[];
     vegas: Vega[];
