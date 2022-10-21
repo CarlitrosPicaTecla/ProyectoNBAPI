@@ -8,12 +8,14 @@ import { LandingComponent } from './components/landing/landing.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PlayerListComponent } from './components/player-list/player-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PlayerListComponent
   ],
   imports: [
     BrowserModule,

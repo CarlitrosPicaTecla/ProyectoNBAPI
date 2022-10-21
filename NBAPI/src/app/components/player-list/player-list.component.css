@@ -1,0 +1,8 @@
+.tablaJugadores {
+    width: 80%;
+    margin: auto;
+}
+
+.tablaJugadores > table {
+    margin: auto;
+}
