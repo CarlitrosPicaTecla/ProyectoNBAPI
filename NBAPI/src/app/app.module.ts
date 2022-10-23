@@ -5,17 +5,20 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsImportModule } from './materials-import/materials-import.module';
 import { TeamListComponent } from './components/team-list/team-list.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LandingComponent } from './components/landing/landing.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PlayerListComponent } from './components/player-list/player-list.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamListComponent,
     LandingComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PlayerListComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     MaterialsImportModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
