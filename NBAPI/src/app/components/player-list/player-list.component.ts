@@ -21,6 +21,7 @@ export class PlayerListComponent implements OnInit {
   years: number[] = [2018, 2019, 2020, 2021, 2022];
   currentYear = 2022;
   teamList: Team[] = [];
+  playerId!: string;
   
   
   @ViewChild(MatPaginator) paginator: MatPaginator = {} as MatPaginator;
@@ -35,7 +36,8 @@ export class PlayerListComponent implements OnInit {
   }
   
   getFotoJugador(jugador: Player) {
-    return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${jugador.personId}.png`
+    this.playerId = jugador.personId;
+    return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${this.playerId}.png`
   }
 
   aplicarFiltro(evento: Event) {
