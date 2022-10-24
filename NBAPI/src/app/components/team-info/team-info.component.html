@@ -1,6 +1,38 @@
-<div >
-{{teamSelect.fullName}}
-<p *ngFor="let player of teamPlayerList">{{player.firstName}}</p>
+<mat-toolbar>
+  <img
+    src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png"
+    class="nbalogo"
+  />
 
+  <div class="navb">
+    <button mat-button color="primary" routerLink="/landing">Menu</button>
+    <button mat-button color="primary" routerLink="/team-list">Equipos</button>
+    <button mat-button color="primary" routerLink="/player-list">
+      Jugadores
+    </button>
+    <button mat-button color="primary">Clasificacion</button>
+  </div>
+</mat-toolbar>
+<div class="nameHeader">
+  <img [src]="showImg(idLink)" class="teamLogo" />
+  <h1>{{ teamSelect.fullName }}</h1>
+</div>
+<div class="container">
+    <mat-form-field appearance="fill">
+        <mat-label>Año</mat-label>
+        <mat-select [(ngModel)]="currentYear" >
+          <mat-option *ngFor="let year of years">{{year}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  <div class="scroll">
+    <div class="players" *ngFor="let player of teamPlayerList">
+      <img
+        [src]="getPlayerImg(player)"
+        class="playerImg"
+        onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'"
+      />
+      <p>{{ player.firstName }} {{ player.lastName }}</p>
+    </div>
+  </div>
 
 </div>
