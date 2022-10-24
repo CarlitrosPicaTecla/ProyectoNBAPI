@@ -1,0 +1,68 @@
+.container{
+    background-image: url("https://www.todofondos.net/wp-content/uploads/nba-wallpaper-ultra-hd.jpg");
+    background-color: #ebebeb;
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+}
+
+.imgMenu img{
+    width: 600px;
+    height: 300px;
+
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.imgMenu{
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 10%;
+    height: 30%;
+}
+
+.logo{
+    display: block;
+    background-color: rgb(245, 245, 245);
+}
+
+.logo img{
+    width: 15%;
+    margin: 0 auto;
+    display: block;
+
+}
+
+.middle{
+    transition: .5s ease;
+    opacity: 0;
+
+    position: relative;
+    bottom: 180px;
+    left: 210px;
+}
+
+.imgMenu:hover{
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 10%;
+    opacity: 0.8;
+
+
+
+}
+
+.imgMenu:hover .middle {
+    opacity: 5;
+  }
+
+.text{
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+font-weight: 900;
+    background-color: white;
+    width: 30%;
+}
