@@ -7,3 +7,22 @@
     text-align: end;
     width: 90%;
 }
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.fotoEquipo {
+    width: 260px;
+    height: 190px;
+    position: relative;
+    z-index: -1;
+    top: -15px;
+    left: 100px;
+}
+
+.fotoJugador {
+    position: absolute;
+    z-index: 1;
+}

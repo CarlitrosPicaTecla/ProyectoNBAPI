@@ -16,7 +16,7 @@ export class PlayerService {
     return this.http.get<PlayerResponse>(`${environment.apiBaseUrl}${year}/players.json`);
   }
 
-  public getById(year: number, id: number) {
+  public getById(year: number, id: number): Player {
     let player: Player = {} as Player;
     this.http.get<PlayerResponse>(`${environment.apiBaseUrl}${year}/players.json`).subscribe(respuesta => {
       respuesta.league.standard.forEach(jugador => {
