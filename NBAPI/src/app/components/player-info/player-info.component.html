@@ -10,28 +10,70 @@
   </div>
 </mat-toolbar>
 
-<div class = "container" fxLayout>
+<div class = "container" fxLayout="column">
     <div class = "fotoContainer"fxFlex >
         <img class = "fotoJugador" [src]="getFotoJugador(player)" onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'">
         <img class = "fotoEquipo" [src]="getFotoEquipo(team)" onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'">
     </div>
-    <div fxFlex fxLayout="row" fxLayOutAlign="space-around">
+    <div fxFlex fxLayout="column" fxLayOutAlign="space-around">
         <h1>{{player.firstName}} {{player.lastName}}</h1>
-        <ul>
-            <li *ngFor="let temporada of playerStats">
-                Temporada {{temporada.seasonYear}}
-                <ul>
-                    <li>Puntos por partido: {{temporada.total.ppg}}</li>
-                    <li>Rebotes por partido: {{temporada.total.rpg}}</li>
-                    <li>Asistencias por partido: {{temporada.total.apg}}</li>
-                    <li>Minutos por partido: {{temporada.total.mpg}}</li>
-                    <li>Pérdidas por partido: {{temporada.total.topg}}</li>
-                    <li>Robos por partido: {{temporada.total.spg}}</li>
-                    <li>Tapones por partido: {{temporada.total.bpg}}</li>
-                    <li>Acierto en tiros libres: {{temporada.total.ftp}} %</li>
-                    <li>Acierto en tiros de campo: {{temporada.total.fgp}} %</li>
-                </ul>
-            </li>
+        <ul style="list-style: none">
+            <li>Altura: {{player.heightMeters}} cm</li>
+            <li>Peso: {{player.weightKilograms}} Kg</li>
+            <li>Nacido el: {{player.dateOfBirthUTC | date: 'dd-MM-yyyy'}}</li>
+            <li>Experiencia: {{playerStats.length}} años</li>
         </ul>
+        <table>
+            <caption>
+                <ul>
+                    <li>MPP: minutos por partido</li>
+                </ul>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Temporada</th>
+                    <th>Equipos</th>
+                    <th>MPP</th>
+                    <th>%TC</th>
+                    <th>%3P</th>
+                    <th>%TL</th>
+                    <th colspan="3">REPP</th>
+                    <th>APP</th>
+                    <th>ROPP</th>
+                    <th>TPP</th>
+                    <th>PÉR</th>
+                    <th>FP</th>
+                    <th>PPP</th>
+                </tr>
+                <tr>
+                    <th colspan="6"></th>
+                    <th>OFE</th>
+                    <th>DEF</th>
+                    <th>TOT</th>
+                    <th colspan="6"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let temporada of playerStats" >
+                    <td>{{temporada.seasonYear}}</td>
+                    <td *ngFor="let team of temporada.teams" class = "containerEquipo"><img class = "fotoEquipoMini" [src]="getFotoEquipoById(team.teamId)" onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'"></td>
+                    <td>{{temporada.total.mpg}}</td>
+                    <td>{{temporada.total.fgp}}</td>
+                    <td>{{temporada.total.tpp}}</td>
+                    <td>{{temporada.total.ftp}}</td>
+                    <td>{{calcularStats(temporada.total.offReb, temporada.total.gamesPlayed)}}</td>
+                    <td>{{calcularStats(temporada.total.defReb, temporada.total.gamesPlayed)}}</td>
+                    <td>{{temporada.total.rpg}}</td>
+                    <td>{{temporada.total.apg}}</td>
+                    <td>{{temporada.total.spg}}</td>
+                    <td>{{temporada.total.bpg}}</td>
+                    <td>{{temporada.total.topg}}</td>
+                    <td>{{calcularStats(temporada.total.pFouls, temporada.total.gamesPlayed)}}</td>
+                    <td>{{temporada.total.ppg}}</td>
+                </tr>
+            </tbody>
+            
+            
+        </table>
     </div>
 </div>

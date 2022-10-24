@@ -26,3 +26,37 @@
     position: absolute;
     z-index: 1;
 }
+
+table  td {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.fotoEquipoMini {
+    width: 40px;
+    height: 40px;
+
+}
+
+.containerEquipo {
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+table caption {
+    caption-side: bottom;
+     border: 1px solid;
+}
+
+table {
+    margin-bottom: 30px;
+}
+
+

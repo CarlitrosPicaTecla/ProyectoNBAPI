@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RegularSeason, Season, Stats } from 'src/app/interfaces/player-stats.interface';
+import { CareerSummary, RegularSeason, Season, Stats } from 'src/app/interfaces/player-stats.interface';
 import { Player } from 'src/app/interfaces/player.interface';
 import { Team } from 'src/app/interfaces/team.interface';
 import { PlayerService } from 'src/app/services/player.service';
@@ -20,6 +20,8 @@ export class PlayerInfoComponent implements OnInit {
   team: Team = {} as Team;
   teamList: Team[] = [];
   teamId: string | undefined;
+  playerCarreer: CareerSummary = {} as CareerSummary;
+
   
   constructor(private ruta: ActivatedRoute,
     private playerService: PlayerService,
@@ -48,6 +50,7 @@ export class PlayerInfoComponent implements OnInit {
           }
         });
       });
+      this.playerCarreer = respuesta.league.standard.stats.careerSummary;
       respuesta.league.standard.stats.regularSeason.season.forEach(temporada => {
         this.playerStats.push(temporada);
       });
@@ -63,6 +66,17 @@ export class PlayerInfoComponent implements OnInit {
   getFotoEquipo(equipo: Team) {
     this.teamId = equipo.teamId;
     return `https://cdn.nba.com/logos/nba/${this.teamId}/global/L/logo.svg`
+  }
+
+  getFotoEquipoById(id?: string) {
+    let idEquipo = id;
+    return `https://cdn.nba.com/logos/nba/${idEquipo}/global/L/logo.svg`
+  }
+
+  calcularStats(reb: string, partidos: string): number {
+    let resultado: number;
+    resultado = Number(reb) / Number(partidos);
+    return Math.round(resultado * 10) / 10;
   }
   
 }
