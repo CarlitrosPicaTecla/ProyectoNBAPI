@@ -18,6 +18,12 @@
             <input matInput (keyup)="aplicarFiltro($event)" placeholder="Ejemplo: Lebron James" #input>
         </mat-form-field>
         <mat-form-field appearance="fill">
+            <mat-label>Filtrar por equipo</mat-label>
+            <mat-select [(ngModel)]="teamSelected">
+                <mat-option *ngFor="let equipo of teamList" [value]="equipo.tricode">{{equipo.fullName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Selecciona un año</mat-label>
             <mat-select [(ngModel)]="currentYear" (selectionChange)="choseSelect(currentYear)">
                 <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
@@ -33,7 +39,7 @@
         </ng-container>
         <ng-container matColumnDef="equipo">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Equipo </th>
-            <td mat-cell *matCellDef="let player">{{getPlayerTeam(player)}}</td>
+            <td mat-cell *matCellDef="let player">{{getPlayerTeam(player).tricode}}</td>
         </ng-container>
         <ng-container matColumnDef="posicion">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Posición </th>

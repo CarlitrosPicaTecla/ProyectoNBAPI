@@ -22,12 +22,27 @@
             <li>Peso: {{player.weightKilograms}} Kg</li>
             <li>Nacido el: {{player.dateOfBirthUTC | date: 'dd-MM-yyyy'}}</li>
             <li>Experiencia: {{playerStats.length}} años</li>
+            <li>Equipo actual: {{team.fullName}}</li>
         </ul>
         <table>
-            <caption>
-                <ul>
-                    <li>MPP: minutos por partido</li>
-                </ul>
+            <caption fxLayOut="row" fxLayOutAlign="space-around">
+                <div>
+                    <p>MPP: minutos por partido</p>
+                    <p>%TC: acierto en tiros de campo</p>
+                    <p>%3P: acierto en triples</p>
+                    <p>%TL: acierto en tiros libres</p>
+                </div>
+                <div>
+                    <p>REPP: rebotes por partido</p>
+                    <p>APP: asistencias por partido</p>
+                    <p>ROPP: robos por partido</p>
+                    <p>TPP: tapones por partido</p>
+                </div>
+                <div>
+                    <p>PÉR: pérdidas por partido</p>
+                    <p>FPPP: faltas personales por partido</p>
+                    <p>PPP: Puntos por partido</p>
+                </div>
             </caption>
             <thead>
                 <tr>
@@ -42,7 +57,7 @@
                     <th>ROPP</th>
                     <th>TPP</th>
                     <th>PÉR</th>
-                    <th>FP</th>
+                    <th>FPPP</th>
                     <th>PPP</th>
                 </tr>
                 <tr>

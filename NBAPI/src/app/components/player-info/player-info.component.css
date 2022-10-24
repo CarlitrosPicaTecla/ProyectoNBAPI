@@ -50,9 +50,16 @@ ul {
     list-style: none;
 }
 
-table caption {
+caption {
     caption-side: bottom;
      border: 1px solid;
+}
+
+caption div {
+    display: flex;
+    gap: 150px;
+    margin-left: 10px;
+    
 }
 
 table {

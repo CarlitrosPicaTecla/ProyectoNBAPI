@@ -22,6 +22,7 @@ export class PlayerListComponent implements OnInit {
   currentYear = 2022;
   teamList: Team[] = [];
   playerId!: string;
+  teamSelected: Team = {} as Team;
   
   
   @ViewChild(MatPaginator) paginator: MatPaginator = {} as MatPaginator;
@@ -33,6 +34,7 @@ export class PlayerListComponent implements OnInit {
   
   ngOnInit(): void {
     this.cargarJugadores(this.currentYear);
+
   }
   
   getFotoJugador(jugador: Player) {
@@ -66,11 +68,17 @@ export class PlayerListComponent implements OnInit {
         team = equipo;
       }
     })
-    return team.tricode;
+    return team;
   }
 
   choseSelect(year: number) {
     this.currentYear = year;
     this.cargarJugadores(year);
   }
+
+  filtrarPorEquipo(team: Team) {
+    
+    
+  }
+
 }

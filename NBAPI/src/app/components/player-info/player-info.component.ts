@@ -69,8 +69,7 @@ export class PlayerInfoComponent implements OnInit {
   }
 
   getFotoEquipoById(id?: string) {
-    let idEquipo = id;
-    return `https://cdn.nba.com/logos/nba/${idEquipo}/global/L/logo.svg`
+    return `https://cdn.nba.com/logos/nba/${id}/global/L/logo.svg`
   }
 
   calcularStats(reb: string, partidos: string): number {
