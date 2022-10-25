@@ -23,6 +23,7 @@ export class PlayerListComponent implements OnInit {
   teamList: Team[] = [];
   playerId!: string;
   teamSelected: Team = {} as Team;
+  filteredPlayerList: Player[] = [];
   
   
   @ViewChild(MatPaginator) paginator: MatPaginator = {} as MatPaginator;
@@ -76,8 +77,20 @@ export class PlayerListComponent implements OnInit {
     this.cargarJugadores(year);
   }
 
-  filtrarPorEquipo(team: Team) {
-    
+  filtrarPorEquipo() {
+    this.filteredPlayerList = [];
+    if(this.teamSelected != null) {
+      this.playerList.forEach(jugador => {
+        if(jugador.teamId == this.teamSelected.teamId) {
+          this.filteredPlayerList.push(jugador);
+        }else {
+          
+        }
+      });
+      this.datos.data = this.filteredPlayerList;
+    }else {
+      this.datos.data = this.playerList;
+    }
     
   }
 

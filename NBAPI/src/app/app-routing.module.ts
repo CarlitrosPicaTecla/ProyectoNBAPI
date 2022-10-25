@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/landing', pathMatch: 'full'},
   {path: 'player-list', component: PlayerListComponent},
   {path: 'team-list', component: TeamListComponent},
-  {path: 'player-info/:id', component: PlayerInfoComponent},
+  {path: 'player-info/:year/:id', component: PlayerInfoComponent},
   {path: '**', component: NotFoundComponent}
 ];
 

@@ -12,8 +12,7 @@ import { TeamService } from 'src/app/services/team.service';
   styleUrls: ['./player-info.component.css']
 })
 export class PlayerInfoComponent implements OnInit {
-  
-  currentYear = 2022;
+
   player: Player = {} as Player;
   playerStats: Season[] = [];
   playerList: Player[] = [];
@@ -28,11 +27,12 @@ export class PlayerInfoComponent implements OnInit {
     private teamService: TeamService) { }
     
     ngOnInit(): void {
-    this.cargarJugador(this.currentYear);
+    this.cargarJugador();
   }
   
-  cargarJugador(year: number) {
+  cargarJugador() {
     const playerId = Number(this.ruta.snapshot.paramMap.get('id'));
+    const year = Number(this.ruta.snapshot.paramMap.get('year'));
     this.playerService.getStatsById(year, playerId).subscribe(respuesta => {
       this.playerService.getPlayers(year).subscribe(respuesta => {
         this.teamService.getTeam(year).subscribe(respuesta => {
