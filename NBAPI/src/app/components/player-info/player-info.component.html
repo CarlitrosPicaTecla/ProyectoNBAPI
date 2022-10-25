@@ -1,0 +1,94 @@
+<mat-toolbar>
+    <a routerLink="/landing" routerLinkActive="active">
+        <img src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png" class="nbalogo" />
+    </a>
+  <div class="navb">
+    <button mat-button color="primary">Menu</button>
+    <button mat-button color="primary" routerLink="/team-list" routerLinkActive="active">Equipos</button>
+    <button mat-button color="primary" routerLink="/player-list" routerLinkActive="active">Jugadores</button>
+    <button mat-button color="primary">Clasificacion</button>
+  </div>
+</mat-toolbar>
+
+<div class = "container" fxLayout="column">
+    <div class = "fotoContainer"fxFlex >
+        <img class = "fotoJugador" [src]="getFotoJugador(player)" onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'">
+        <img class = "fotoEquipo" [src]="getFotoEquipo(team)" onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'">
+    </div>
+    <div fxFlex fxLayout="column" fxLayOutAlign="space-around">
+        <h1>{{player.firstName}} {{player.lastName}}</h1>
+        <ul style="list-style: none">
+            <li>Altura: {{player.heightMeters}} cm</li>
+            <li>Peso: {{player.weightKilograms}} Kg</li>
+            <li>Nacido el: {{player.dateOfBirthUTC | date: 'dd-MM-yyyy'}}</li>
+            <li>Experiencia: {{playerStats.length}} años</li>
+            <li>Equipo actual: {{team.fullName}}</li>
+        </ul>
+        <table>
+            <caption fxLayOut="row" fxLayOutAlign="space-around">
+                <div>
+                    <p>MPP: minutos por partido</p>
+                    <p>%TC: acierto en tiros de campo</p>
+                    <p>%3P: acierto en triples</p>
+                    <p>%TL: acierto en tiros libres</p>
+                </div>
+                <div>
+                    <p>REPP: rebotes por partido</p>
+                    <p>APP: asistencias por partido</p>
+                    <p>ROPP: robos por partido</p>
+                    <p>TPP: tapones por partido</p>
+                </div>
+                <div>
+                    <p>PÉR: pérdidas por partido</p>
+                    <p>FPPP: faltas personales por partido</p>
+                    <p>PPP: Puntos por partido</p>
+                </div>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Temporada</th>
+                    <th>Equipos</th>
+                    <th>MPP</th>
+                    <th>%TC</th>
+                    <th>%3P</th>
+                    <th>%TL</th>
+                    <th colspan="3">REPP</th>
+                    <th>APP</th>
+                    <th>ROPP</th>
+                    <th>TPP</th>
+                    <th>PÉR</th>
+                    <th>FPPP</th>
+                    <th>PPP</th>
+                </tr>
+                <tr>
+                    <th colspan="6"></th>
+                    <th>OFE</th>
+                    <th>DEF</th>
+                    <th>TOT</th>
+                    <th colspan="6"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let temporada of playerStats" >
+                    <td>{{temporada.seasonYear}}</td>
+                    <td *ngFor="let team of temporada.teams" class = "containerEquipo"><img class = "fotoEquipoMini" [src]="getFotoEquipoById(team.teamId)" onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'"></td>
+                    <td>{{temporada.total.mpg}}</td>
+                    <td>{{temporada.total.fgp}}</td>
+                    <td>{{temporada.total.tpp}}</td>
+                    <td>{{temporada.total.ftp}}</td>
+                    <td>{{calcularStats(temporada.total.offReb, temporada.total.gamesPlayed)}}</td>
+                    <td>{{calcularStats(temporada.total.defReb, temporada.total.gamesPlayed)}}</td>
+                    <td>{{temporada.total.rpg}}</td>
+                    <td>{{temporada.total.apg}}</td>
+                    <td>{{temporada.total.spg}}</td>
+                    <td>{{temporada.total.bpg}}</td>
+                    <td>{{temporada.total.topg}}</td>
+                    <td>{{calcularStats(temporada.total.pFouls, temporada.total.gamesPlayed)}}</td>
+                    <td>{{temporada.total.ppg}}</td>
+                </tr>
+            </tbody>
+            
+            
+        </table>
+    </div>
+</div>

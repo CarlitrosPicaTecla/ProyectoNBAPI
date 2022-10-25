@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TeamInfoComponent } from './components/team-info/team-info.component';
+import { PlayerInfoComponent } from './components/player-info/player-info.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TeamInfoComponent } from './components/team-info/team-info.component';
     LandingComponent,
     NotFoundComponent,
     PlayerListComponent,
-    TeamInfoComponent
+    TeamInfoComponent,
+    PlayerInfoComponent
   ],
   imports: [
     BrowserModule,
