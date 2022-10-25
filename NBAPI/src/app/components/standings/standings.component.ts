@@ -1,5 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { Team } from 'src/app/interfaces/standings.interface';
 import { StandingsService } from 'src/app/services/standings.service';
 
@@ -11,6 +12,9 @@ import { StandingsService } from 'src/app/services/standings.service';
 export class StandingsComponent implements OnInit {
 
   rankingTeams: Team[] = [];
+  datos = new MatTableDataSource<Team>();
+  displayedColumns: string[] = ['ranking', 'nombre', 'victorias', 'derrotas', 'porcentajeVD', 'balanceConf',
+   'balanceLocal', 'balanceVisitante', 'lastTen', 'racha', 'mediaPuntosATK', 'mediaPuntosDEF', 'diferenciaPTS'];
 
   constructor(private standingsService: StandingsService) { }
 

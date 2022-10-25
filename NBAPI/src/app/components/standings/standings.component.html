@@ -15,10 +15,71 @@
 
     </div>
 
-    <table mat-table [dataSource]="datos">
-        <ng-container matColumnDef="">
+    <table mat-table [dataSource]="datos" matSort>
+
+        <ng-container matColumnDef="ranking">
+            <th mat-header-cell mat-sort-header> POS </th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell> Nombre </th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="victorias">
             <th mat-header-cell></th>
-            <td mat-cell></td>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="derrotas">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="porcentajeVD">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="balanceConf">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="balanceLocal">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="balanceVisitante">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastTen">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="racha">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="mediaPuntosATK">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="mediaPuntosDEF">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="diferenciaPTS">
+            <th mat-header-cell></th>
+            <td mat-cell *matCellDef="let team"></td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
