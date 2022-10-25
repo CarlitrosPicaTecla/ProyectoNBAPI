@@ -1,4 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Team } from 'src/app/interfaces/standings.interface';
+import { StandingsService } from 'src/app/services/standings.service';
 
 @Component({
   selector: 'app-standings',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StandingsComponent implements OnInit {
 
-  constructor() { }
+  rankingTeams: Team[] = [];
+
+  constructor(private standingsService: StandingsService) { }
 
   ngOnInit(): void {
+    this.cargarStandings();
   }
+
+  cargarStandings() {
+    this.standingsService.getAllStandings().subscribe(respuesta => {
+      this.rankingTeams = respuesta.league.vegas.teams;
+    });
+  }
+
 
 }
