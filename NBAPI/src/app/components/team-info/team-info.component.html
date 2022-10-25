@@ -18,13 +18,26 @@
   <h1>{{ teamSelect.fullName }}</h1>
 </div>
 <div class="container">
-    <mat-form-field appearance="fill">
-        <mat-label>Año</mat-label>
-        <mat-select [(ngModel)]="currentYear" >
-          <mat-option *ngFor="let year of years">{{year}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Año</mat-label>
+    <mat-select
+      [(ngModel)]="currentYear"
+      (selectionChange)="choseSelect(currentYear)"
+    >
+      <mat-option *ngFor="let year of years" [value]="year">{{
+        year
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
   <div class="scroll">
+    <div class="coachs">
+      <img
+        [src]="getCoachImg(coachSelect)"
+        class="playerImg"
+        onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'"
+      />
+      <p>{{ coachSelect.firstName }} {{ coachSelect.lastName }} (Entrenador)</p>
+    </div>
     <div class="players" *ngFor="let player of teamPlayerList">
       <img
         [src]="getPlayerImg(player)"
@@ -34,5 +47,4 @@
       <p>{{ player.firstName }} {{ player.lastName }}</p>
     </div>
   </div>
-
 </div>

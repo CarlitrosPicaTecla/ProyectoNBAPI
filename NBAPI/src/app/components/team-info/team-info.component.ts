@@ -5,6 +5,8 @@ import { Player } from 'src/app/interfaces/player.interface';
 import { Team } from 'src/app/interfaces/team.interface';
 import { PlayerService } from 'src/app/services/player.service';
 import { TeamService } from 'src/app/services/team.service';
+import { CoachService } from 'src/app/services/coach.service';
+import { Coach } from 'src/app/interfaces/coach.interface';
 
 @Component({
   selector: 'app-team-info',
@@ -29,13 +31,19 @@ export class TeamInfoComponent implements OnInit {
 
   years : number[] = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022];
 
-  constructor(private route: ActivatedRoute, private teamService : TeamService, private playerservice : PlayerService) { }
+  coachList : Coach[] = [];
+
+  coachSelect : Coach = {} as Coach;
+
+
+  constructor(private route: ActivatedRoute, private teamService : TeamService, private playerservice : PlayerService, private coachService : CoachService) { }
 
   ngOnInit(): void {
     this.getParams();
     this.getTeamInfo(this.yearLink);
     this.getPlayersOfTeam(this.yearLink);
     this.showImg(this.idLink);
+    this.getCoachOfTeam(this.yearLink);
   }
 
   getTeamInfo(year:number){
@@ -73,6 +81,19 @@ getPlayersOfTeam(year : number){
   });
 
 }
+getCoachOfTeam(year : number){
+  
+  this.coachService.getCoachs(year).subscribe(res =>{
+    this.coachList = res.league.standard;
+
+    for(let coach of this.coachList){
+      if(coach.teamId == this.idLink && coach.isAssistant==false){
+        this.coachSelect=coach;
+      }
+    }
+  });
+
+}
 
 showImg(idLogo : string){
   
@@ -96,6 +117,10 @@ cargarJugadores(year: number) {
     
   });
 
+}
+
+getCoachImg(coach : Coach) {
+  return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${coach.personId}.png`
 }
 
 }
