@@ -29,4 +29,8 @@ export class TeamListComponent implements OnInit {
     let id = team.teamId;
       return `https://cdn.nba.com/logos/nba/${id}/global/L/logo.svg`;
   }
+
+  
+
+
 }

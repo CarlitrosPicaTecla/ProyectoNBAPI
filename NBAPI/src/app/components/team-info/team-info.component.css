@@ -1,0 +1,69 @@
+@import url('http://fonts.cdnfonts.com/css/gilroy-bold');
+
+.nbalogo{
+    width: 6%;
+    display: block;
+  }
+
+
+.navb{
+  text-align: end;
+  width: 90%;
+}
+.nameHeader{
+    display: flex;
+    background-color: rgb(216, 216, 216);
+    width: 100%;
+    margin-top: 0px;
+    height: 20%;
+
+    
+}
+
+h1{
+    font-size: 150px;
+    font-family: 'Gilroy-Bold';
+    color: rgb(58, 58, 58);
+    margin-top: -0.1%;
+}
+
+.teamLogo{
+    width: 12%;
+}
+
+.playerImg{
+    width: 30%;
+    max-height: 100px;
+    display: inline;
+}
+.players{
+    display: flex;
+    margin: 30px;
+}
+
+.players p {
+
+    font-size: 20px;
+    font-weight: 700;
+}
+.scroll{
+    overflow-y: scroll;
+    width: 22%;
+    max-height: 700px;
+}
+
+mat-form-field{
+    display: inline-block;
+    margin-left: 70px;
+    margin-top: 20px;
+}
+
+.coachs p{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.coachs{
+    display: flex;
+    margin: 30px;
+}
