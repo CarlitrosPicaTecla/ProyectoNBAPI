@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PlayerInfoComponent } from './components/player-info/player-info.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     TeamListComponent,
     LandingComponent,
     NotFoundComponent,
-    PlayerListComponent
+    PlayerListComponent,
+    PlayerInfoComponent
   ],
   imports: [
     BrowserModule,

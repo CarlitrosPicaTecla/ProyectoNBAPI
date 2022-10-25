@@ -1,0 +1,69 @@
+.nbalogo{
+    width: 6%;
+    display: block;
+}
+
+.navb{
+    text-align: end;
+    width: 90%;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.fotoEquipo {
+    width: 260px;
+    height: 190px;
+    position: relative;
+    z-index: -1;
+    top: -15px;
+    left: 100px;
+}
+
+.fotoJugador {
+    position: absolute;
+    z-index: 1;
+}
+
+table  td {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.fotoEquipoMini {
+    width: 40px;
+    height: 40px;
+
+}
+
+.containerEquipo {
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+caption {
+    caption-side: bottom;
+     border: 1px solid;
+}
+
+caption div {
+    display: flex;
+    gap: 150px;
+    margin-left: 10px;
+    
+}
+
+table {
+    margin-bottom: 30px;
+}
+
+
