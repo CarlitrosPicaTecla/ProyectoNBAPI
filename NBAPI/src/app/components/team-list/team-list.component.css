@@ -14,11 +14,11 @@
   .cont{
     text-align: center;
     width: 100%;
-    background-color: black;
+    background-color: rgb(204, 204, 204);
   }
 
-  .nbalogo{
-    width: 6%;
+  .nbalogo {
+    width: 15%;
     display: block;
   }
 
