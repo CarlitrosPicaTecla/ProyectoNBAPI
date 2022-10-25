@@ -84,3 +84,11 @@ mat-form-field{
     margin: 30px;
 }
 
+.games{
+    width: 60%;
+    display: flex;
+}
+
+.games img{
+    width: 5%;
+}

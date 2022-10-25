@@ -1,10 +1,11 @@
 <mat-toolbar>
   <a href="">
-  <img
-    src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png"
-    class="nbalogo" routerLink="/landing"
-  />
-</a>
+    <img
+      src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png"
+      class="nbalogo"
+      routerLink="/landing"
+    />
+  </a>
   <div class="navb">
     <button mat-button color="primary" routerLink="/landing">Menu</button>
     <button mat-button color="primary" routerLink="/team-list">Equipos</button>
@@ -45,7 +46,18 @@
         class="playerImg"
         onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'"
       />
-      <p ><a [routerLink]="['/player-info', this.yearLink , player.personId]">{{ player.firstName }} {{ player.lastName }}</a></p>
+      <p>
+        <a [routerLink]="['/player-info', this.yearLink, player.personId]"
+          >{{ player.firstName }} {{ player.lastName }}</a
+        >
+      </p>
     </div>
+  </div>
+
+  <div class="games" *ngFor="let game of gameSelectedList">
+    <img [src]="showImg(game.hTeam.teamId)">
+    <p>{{ game.hTeam.score }}-{{ game.vTeam.score }}</p>
+    <img [src]="showImg(game.vTeam.teamId)">
+
   </div>
 </div>

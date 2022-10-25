@@ -7,7 +7,8 @@ import { PlayerService } from 'src/app/services/player.service';
 import { TeamService } from 'src/app/services/team.service';
 import { CoachService } from 'src/app/services/coach.service';
 import { Coach } from 'src/app/interfaces/coach.interface';
-
+import { ScheduleService } from 'src/app/services/schedule.service';
+import { Standard } from 'src/app/interfaces/schedule.interface';
 @Component({
   selector: 'app-team-info',
   templateUrl: './team-info.component.html',
@@ -37,8 +38,12 @@ export class TeamInfoComponent implements OnInit {
 
   coachSelect : Coach = {} as Coach;
 
+  gameList : Standard[] = [];
 
-  constructor(private route: ActivatedRoute, private teamService : TeamService, private playerservice : PlayerService, private coachService : CoachService, private router: Router) { }
+  gameSelectedList : Standard[] = [];
+
+
+  constructor(private route: ActivatedRoute, private teamService : TeamService, private playerservice : PlayerService, private coachService : CoachService, private router: Router, private scheduleservice : ScheduleService) { }
 
   ngOnInit(): void {
     this.getParams();
@@ -46,6 +51,7 @@ export class TeamInfoComponent implements OnInit {
     this.getPlayersOfTeam(this.yearLink);
     this.showImg(this.idLink);
     this.getCoachOfTeam(this.yearLink);
+    this.getLastGames(this.yearLink);
   }
 
   getTeamInfo(year:number){
@@ -113,6 +119,7 @@ choseSelect(year: number) {
 this.router.navigate([`team-info/${year}/${this.idLink}`]);
 this.getCoachOfTeam(year);
 this.getPlayersOfTeam(year);
+this.getLastGames(year);
 
 }
 
@@ -120,6 +127,20 @@ this.getPlayersOfTeam(year);
 
 getCoachImg(coach : Coach) {
   return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${coach.personId}.png`
+}
+
+getLastGames(year : number){
+
+  this.gameList=[];
+  this.scheduleservice.getGames(year).subscribe(res =>{
+    this.gameList= res.league.standard;
+    for (let i = 0; i < this.gameList.length; i++) {
+      if(this.gameList[i].hTeam.teamId==this.idLink || this.gameList[i].vTeam.teamId==this.idLink){
+      this.gameSelectedList.push(this.gameList[i]);
+      }
+    }
+
+  });
 }
 
 }
