@@ -1,13 +1,9 @@
 .example-card {
-
- padding: 50px;
-
-  }
-  app-team-card{
     min-width:250px ;
     display: inline-block;
-    margin: 3%;
+    margin: 2%;
     text-align: center;
+
   }
   
   .example-header-image {

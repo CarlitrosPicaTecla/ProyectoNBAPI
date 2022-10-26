@@ -1,0 +1,5 @@
+<mat-card-header>
+    <mat-card-title>{{ teamCard.fullName }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="showImg(teamCard)" />
+  <button mat-button color="primary" [routerLink]="['/team-info', this.year, teamCard.teamId]">Info</button>

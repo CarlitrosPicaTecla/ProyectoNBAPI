@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Player } from 'src/app/interfaces/player.interface';
 import { Team } from 'src/app/interfaces/team.interface';
 import { PlayerService } from 'src/app/services/player.service';
 import { TeamService } from 'src/app/services/team.service';
 import { CoachService } from 'src/app/services/coach.service';
 import { Coach } from 'src/app/interfaces/coach.interface';
+import { ScheduleService } from 'src/app/services/schedule.service';
+import { Standard } from 'src/app/interfaces/schedule.interface';
 
 @Component({
   selector: 'app-team-info',
@@ -19,6 +21,8 @@ export class TeamInfoComponent implements OnInit {
 
   yearLink : number = {} as number ;
 
+  yearSelect : number = {} as number;
+
   teamSelect : Team = {} as Team;
 
   teamList : Team[] = []; 
@@ -29,14 +33,18 @@ export class TeamInfoComponent implements OnInit {
 
   currentYear = 2022;
 
-  years : number[] = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022];
+  years : number[] = [2018, 2019, 2020, 2021, 2022];
 
   coachList : Coach[] = [];
 
   coachSelect : Coach = {} as Coach;
 
+  gameList : Standard[] = [];
 
-  constructor(private route: ActivatedRoute, private teamService : TeamService, private playerservice : PlayerService, private coachService : CoachService) { }
+  gameSelectedList : Standard[] = [];
+
+
+  constructor(private route: ActivatedRoute, private teamService : TeamService, private playerservice : PlayerService, private coachService : CoachService, private router: Router, private scheduleservice : ScheduleService) { }
 
   ngOnInit(): void {
     this.getParams();
@@ -44,10 +52,12 @@ export class TeamInfoComponent implements OnInit {
     this.getPlayersOfTeam(this.yearLink);
     this.showImg(this.idLink);
     this.getCoachOfTeam(this.yearLink);
+    this.getLastGames(this.yearLink);
   }
 
   getTeamInfo(year:number){
-    this.teamService.getTeam(this.yearLink).subscribe(res =>{
+    debugger;
+    this.teamService.getTeam(year).subscribe(res =>{
 
       this.teamList = res.league.standard;
 
@@ -68,8 +78,11 @@ export class TeamInfoComponent implements OnInit {
     
   }
 
+
+
+
 getPlayersOfTeam(year : number){
-  
+  this.teamPlayerList = [];
   this.playerservice.getPlayers(year).subscribe(res =>{
     this.playerList = res.league.standard;
 
@@ -104,23 +117,31 @@ getPlayerImg(jugador: Player) {
 }
 
 choseSelect(year: number) {
-  this.currentYear = year;
-  this.cargarJugadores(year);
-}
-
-cargarJugadores(year: number) {
-  this.playerservice.getPlayers(year).subscribe(respuesta => {
-    this.playerList = respuesta.league.standard;
-    this.teamService.getTeam(year).subscribe(respuesta => {
-      this.teamList = respuesta.league.standard;
-    })
-    
-  });
+this.router.navigate([`team-info/${year}/${this.idLink}`]);
+this.getCoachOfTeam(year);
+this.getPlayersOfTeam(year);
+this.getLastGames(year);
 
 }
+
+
 
 getCoachImg(coach : Coach) {
   return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${coach.personId}.png`
+}
+
+getLastGames(year : number){
+
+  this.gameSelectedList=[];
+  this.scheduleservice.getGames(year).subscribe(res =>{
+    this.gameList= res.league.standard;
+    for (let i = 0; i < this.gameList.length; i++) {
+      if(this.gameList[i].hTeam.teamId==this.idLink || this.gameList[i].vTeam.teamId==this.idLink){
+      this.gameSelectedList.push(this.gameList[i]);
+      }
+    }
+
+  });
 }
 
 }

@@ -1,9 +1,11 @@
 <mat-toolbar>
-  <img
-    src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png"
-    class="nbalogo"
-  />
-
+  <a href="">
+    <img
+      src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png"
+      class="nbalogo"
+      routerLink="/landing"
+    />
+  </a>
   <div class="navb">
     <button mat-button color="primary" routerLink="/landing">Menu</button>
     <button mat-button color="primary" routerLink="/team-list">Equipos</button>
@@ -15,14 +17,14 @@
 </mat-toolbar>
 <div class="nameHeader">
   <img [src]="showImg(idLink)" class="teamLogo" />
-  <h1>{{ teamSelect.fullName }}</h1>
+  <h1 class="title">{{ teamSelect.fullName }}</h1>
 </div>
 <div class="container">
   <mat-form-field appearance="fill">
     <mat-label>Año</mat-label>
     <mat-select
-      [(ngModel)]="currentYear"
-      (selectionChange)="choseSelect(currentYear)"
+      [(ngModel)]="yearSelect"
+      (selectionChange)="choseSelect(yearSelect)"
     >
       <mat-option *ngFor="let year of years" [value]="year">{{
         year
@@ -44,7 +46,22 @@
         class="playerImg"
         onerror="this.src='https://cdn.fansshare.com/photos/nba/nba-logo-vector-logo-1833981231.jpg'"
       />
-      <p>{{ player.firstName }} {{ player.lastName }}</p>
+      <p>
+        <a [routerLink]="['/player-info', this.yearLink, player.personId]"
+          >{{ player.firstName }} {{ player.lastName }}</a
+        >
+      </p>
     </div>
   </div>
+  <div class="aaa">
+  <div class="games" *ngFor="let game of gameSelectedList">
+
+    <img [src]="showImg(game.hTeam.teamId)">
+    <p>{{ game.hTeam.score }}-</p>
+    <p>{{ game.vTeam.score }}</p>
+    <img [src]="showImg(game.vTeam.teamId)">
+  </div>
 </div>
+
+</div>
+
