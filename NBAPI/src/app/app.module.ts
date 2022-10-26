@@ -13,6 +13,7 @@ import { PlayerListComponent } from './components/player-list/player-list.compon
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TeamInfoComponent } from './components/team-info/team-info.component';
 import { PlayerInfoComponent } from './components/player-info/player-info.component';
+import { StandingsComponent } from './components/standings/standings.component';
 import { TeamCardComponent } from './components/team-card/team-card.component';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { TeamCardComponent } from './components/team-card/team-card.component';
     PlayerListComponent,
     TeamInfoComponent,
     PlayerInfoComponent,
+    StandingsComponent,
     TeamCardComponent
   ],
   imports: [

@@ -1,0 +1,28 @@
+.nbalogo{
+    width: 6%;
+    display: block;
+}
+
+.navb{
+    text-align: end;
+    width: 90%;
+}
+
+.rankingTable table {
+    margin: auto;
+}
+
+.rankingTable {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+.td, th {
+    width: 8%;
+}
