@@ -9,6 +9,7 @@ import { CoachService } from 'src/app/services/coach.service';
 import { Coach } from 'src/app/interfaces/coach.interface';
 import { ScheduleService } from 'src/app/services/schedule.service';
 import { Standard } from 'src/app/interfaces/schedule.interface';
+
 @Component({
   selector: 'app-team-info',
   templateUrl: './team-info.component.html',
@@ -131,7 +132,7 @@ getCoachImg(coach : Coach) {
 
 getLastGames(year : number){
 
-  this.gameList=[];
+  this.gameSelectedList=[];
   this.scheduleservice.getGames(year).subscribe(res =>{
     this.gameList= res.league.standard;
     for (let i = 0; i < this.gameList.length; i++) {

@@ -36,8 +36,8 @@ h1{
 }
 
 .playerImg{
-    width: 35%;
-    max-height: 100px;
+    width: 30%;
+    max-height: 200px;
     display: inline;
 }
 .players{
@@ -47,7 +47,9 @@ h1{
 
 .players p {
 
-    font-size: 20px;
+    font-size: 25px;
+    margin-top: 60px;
+    margin-left: 30px;
     font-weight: 700;
 }
 
@@ -64,7 +66,7 @@ color: black;
     }
 .scroll{
     overflow-y: scroll;
-    width: 22%;
+    width: 40%;
     max-height: 700px;
 }
 
@@ -76,6 +78,7 @@ mat-form-field{
 
 .coachs p{
     font-size: 20px;
+    margin-top: 50px;
     font-weight: 700;
 }
 
@@ -87,8 +90,31 @@ mat-form-field{
 .games{
     width: 60%;
     display: flex;
+float: right;
+margin-right: 100px;
+
+}
+
+.games p{
+   margin-top: 80px;
+   font-weight: bold;
+   font-size: x-large;
 }
 
 .games img{
-    width: 5%;
+    width: 30%;
+}
+.container{
+    
+}
+
+.aaa{
+    margin-top: -805px;
+    background-color: rgb(216, 216, 216);
+    width: 60%;
+    float: right;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 800px;
+
 }

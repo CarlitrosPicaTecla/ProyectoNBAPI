@@ -53,11 +53,15 @@
       </p>
     </div>
   </div>
-
+  <div class="aaa">
   <div class="games" *ngFor="let game of gameSelectedList">
-    <img [src]="showImg(game.hTeam.teamId)">
-    <p>{{ game.hTeam.score }}-{{ game.vTeam.score }}</p>
-    <img [src]="showImg(game.vTeam.teamId)">
 
+    <img [src]="showImg(game.hTeam.teamId)">
+    <p>{{ game.hTeam.score }}-</p>
+    <p>{{ game.vTeam.score }}</p>
+    <img [src]="showImg(game.vTeam.teamId)">
   </div>
 </div>
+
+</div>
+
