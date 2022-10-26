@@ -1,22 +1,22 @@
 <mat-toolbar>
+  <a href="">
   <img
     src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png"
-    class="nbalogo"
-  />
+    class="nbalogo" routerLink="/landing"
+  /></a>
 
   <div class="navb">
-    <button mat-button color="primary">Menu</button>
+    <button mat-button color="primary" routerLink="/landing">Menu</button>
     <button mat-button color="primary" routerLink="/team-list" routerLinkActive="active">Equipos</button>
     <button mat-button color="primary" routerLink="/player-list" routerLinkActive="active">Jugadores</button>
     <button mat-button color="primary" routerLink="/standings" routerLinkActive="router-link-active">Clasificación</button>
   </div>
 </mat-toolbar>
 <div class="cont">
-  <mat-card class="example-card" *ngFor="let team of teamList">
-    <mat-card-header>
-      <mat-card-title>{{ team.fullName }}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image [src]="showImg(team)" />
-    <button mat-button color="primary" [routerLink]="['/team-info', this.year, team.teamId]">Info</button>
+  
+  <mat-card class="example-card" >
+   <app-team-card *ngFor="let team of teamList" [teamCard]="team">
+
+   </app-team-card>
   </mat-card>
 </div>

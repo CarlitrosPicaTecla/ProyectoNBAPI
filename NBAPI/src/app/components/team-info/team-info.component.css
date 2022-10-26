@@ -1,7 +1,7 @@
 @import url('http://fonts.cdnfonts.com/css/gilroy-bold');
 
 .nbalogo{
-    width: 6%;
+    width: 15%;
     display: block;
   }
 
@@ -20,20 +20,24 @@
     
 }
 
+
 h1{
     font-size: 150px;
     font-family: 'Gilroy-Bold';
-    color: rgb(58, 58, 58);
+    color: rgb(255, 255, 255);
     margin-top: -0.1%;
+    -webkit-text-stroke: 2px rgb(0, 0, 0); 
+
 }
 
 .teamLogo{
-    width: 12%;
+    width: 10%;
+
 }
 
 .playerImg{
     width: 30%;
-    max-height: 100px;
+    max-height: 200px;
     display: inline;
 }
 .players{
@@ -43,12 +47,26 @@ h1{
 
 .players p {
 
-    font-size: 20px;
+    font-size: 25px;
+    margin-top: 60px;
+    margin-left: 30px;
     font-weight: 700;
 }
+
+.players a {
+
+text-decoration: none;
+color: black;
+}
+
+.players a:hover {
+
+    text-decoration: none;
+    color: rgb(97, 97, 97);
+    }
 .scroll{
     overflow-y: scroll;
-    width: 22%;
+    width: 40%;
     max-height: 700px;
 }
 
@@ -60,10 +78,43 @@ mat-form-field{
 
 .coachs p{
     font-size: 20px;
+    margin-top: 50px;
     font-weight: 700;
 }
 
 .coachs{
     display: flex;
     margin: 30px;
+}
+
+.games{
+    width: 60%;
+    display: flex;
+float: right;
+margin-right: 100px;
+
+}
+
+.games p{
+   margin-top: 80px;
+   font-weight: bold;
+   font-size: x-large;
+}
+
+.games img{
+    width: 30%;
+}
+.container{
+    
+}
+
+.aaa{
+    margin-top: -805px;
+    background-color: rgb(216, 216, 216);
+    width: 60%;
+    float: right;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 800px;
+
 }

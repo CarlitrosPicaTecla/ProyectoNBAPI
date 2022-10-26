@@ -14,6 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TeamInfoComponent } from './components/team-info/team-info.component';
 import { PlayerInfoComponent } from './components/player-info/player-info.component';
 import { StandingsComponent } from './components/standings/standings.component';
+import { TeamCardComponent } from './components/team-card/team-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StandingsComponent } from './components/standings/standings.component';
     PlayerListComponent,
     TeamInfoComponent,
     PlayerInfoComponent,
-    StandingsComponent
+    StandingsComponent,
+    TeamCardComponent
   ],
   imports: [
     BrowserModule,
